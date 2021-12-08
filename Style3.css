@@ -1,0 +1,10 @@
+.navbar-brand{
+    font-family: 'Anton', sans-serif;
+}
+
+.nav-item{
+    margin-left: 50px;
+}
+.dropdown-toggle {
+    margin-left: -50px;
+}

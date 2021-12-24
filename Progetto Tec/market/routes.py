@@ -1,6 +1,3 @@
-from flask import Flask,render_template
-app = Flask(__name__)
-
 @app.route('/')
 @app.route('/home')
 def home_page():
@@ -8,4 +5,5 @@ def home_page():
 
 @app.route('/annunci')
 def annunci_page():
-    return render_template('annunci.html')
+    items = Item.query.all()
+    return render_template('annunci.html', items=items)

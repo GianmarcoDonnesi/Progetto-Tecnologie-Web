@@ -18,34 +18,24 @@
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #01A670;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="/static/logo1.svg" alt="" width="80" height="65" class="d-inline-block align-text-middle">
+      <img src="{{url_for('static', filename='stretta.png')}}" alt="50" width="80" height="45" class="d-inline-block align-text-middle">
      <font  size="6"> <strong>  LEND IT! </strong> </font>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
           <a class="nav-link active" aria-current="page" href="{{ url_for('annunci_page') }}">Annunci</a>
         </li>
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Profilo
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="I_tuoi_annunci.html" >I tuoi annunci</a></li>
-          <li><a class="dropdown-item" href="Messaggi.html">I tuoi messaggi</a></li>
-          <li><a class="dropdown-item" href="https://www.google.com">Login</a></li>
-            <li><a class="dropdown-item" href="https://www.google.com">Registrati</a></li>
-            <li><a class="dropdown-item" href="https://www.google.com">Logout</a></li>
-        </ul>
+          <li class="nav-item active">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('annunci_page') }}">Login</a>
         </li>
-      </ul>
-      <form class="d-flex">
-        <input class="px-2 barra" type="search" placeholder="Ricerca" aria-label="Search">
-        <button class=" barra2" type="submit">Ricerca</button>
-      </form>
+          <li class="nav-item active">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('register_page') }}">Registrati</a>
+        </li>
+        </ul>
     </div>
   </div>
 </nav>
@@ -76,7 +66,7 @@
   <div class="col-lg-3 text-center">
     <div class="card border-0 bg-light mb-2">
       <div class="card-body">
-        <img src="/static/canon.jpg" class="img-fluid" alt="">
+        <img src="{{url_for('static', filename='canon.jpg')}}" class="img-fluid" alt="">
       </div>
     </div>
     <h6>Macchina Fotografica</h6>
@@ -86,7 +76,7 @@
     <div class="col-lg-3 text-center">
       <div class="card border-0 bg-light mb-2">
         <div class="card-body">
-          <img src="/static/librus.jpg" class="img-fluid" alt="">
+          <img src="{{url_for('static', filename='librus.jpg')}}" class="img-fluid" alt="">
         </div>
       </div>
       <h6>Libro</h6>
@@ -96,7 +86,7 @@
     <div class="col-lg-3 text-center">
       <div class="card border-0 bg-light mb-2">
         <div class="card-body">
-          <img src="/static/light.png" class="img-fluid" alt="">
+          <img src="{{url_for('static', filename='light.png')}}" class="img-fluid" alt="">
         </div>
       </div>
       <h6>Light box</h6>
@@ -106,7 +96,7 @@
     <div class="col-lg-3 text-center">
       <div class="card border-0 bg-light mb-2">
         <div class="card-body">
-          <img src="/static/sci.jpg" class="img-fluid" alt="">
+          <img src="{{url_for('static', filename='sci.jpg')}}" class="img-fluid" alt="">
         </div>
       </div>
       <h6>Sci</h6>
@@ -116,7 +106,7 @@
 
   <div class="row">
     <div class="col-lg-6 text-center m-auto">
-     <a href="{{ url_for('annunci_page') }}"> <button class="btn5">Più info</button> </a>
+     <a href="{{ url_for('annunci_page') }}"> <button class="btn5">Vai alla sezione Annunci</button> </a>
     </div>
   </div>
 </div>
@@ -196,7 +186,7 @@
     margin-right: 80px;
 }
 .main{
-    background: url("/static/sfondo.jpg") no-repeat;
+    background: url("{{url_for('static', filename='sfondo.jpg')}}") no-repeat;
     background-size: cover;
     height: 60vh;
 }
@@ -242,6 +232,9 @@
 .mappa {
     position: relative;
     top: 200px;
+}
+.navbar-collapse{
+    font-size: 1em;
 }
 </style>
 </html>

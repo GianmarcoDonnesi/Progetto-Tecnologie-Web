@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:sqlite:C:\Users\gianm\Desktop\Progetto Tec\market.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="market [2]" uuid="a089356a-500b-4d85-b80c-82c60e72e7a1">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\gianm\Desktop\Progetto Tec\market\market.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

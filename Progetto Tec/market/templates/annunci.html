@@ -1,60 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
+{% extends 'base.html' %}
+{% block title %}
+  Annunci
+{% endblock %}
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('static', filename='annunci_style.css')}}">
-    <title>Lend it! - annunci </title>
-    <link rel="preconnect"  href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-</head>
-
-<body>
+{% block content %}
 
 
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #01A670;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="{{url_for('static', filename='stretta.png')}}" alt="50" width="80" height="45" class="d-inline-block align-text-middle">
-            <font  size="6"> <strong>  LEND IT! </strong> </font>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ url_for('home_page') }}">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Profilo
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="I_tuoi_annunci.html" >I tuoi annunci</a></li>
-                        <li><a class="dropdown-item" href="Messaggi.html">I tuoi messaggi</a></li>
-                        <li><a class="dropdown-item" href="https://www.google.com">logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="d-flex">
-                <input class="px-2 barra" type="search" placeholder="Ricerca" aria-label="Search">
-                <button class=" barra2" type="submit">Ricerca</button>
-            </form>
-        </div>
-    </div>
-</nav>
 <table class="content-table table-hover table-light">
     <thead>
         <tr>
             <!-- Your Columns HERE -->
             <th scope="col">Titolo articolo</th>
-            <th scope="col">Indirizzo</th>
             <th scope="col">Provincia</th>
+            <th scope="col">Cauzione</th>
             <th scope="col">Prezzo</th>
             <th scope="col">Opzioni</th>
         </tr>
@@ -63,8 +21,8 @@
       {% for item in items %}
           <tr>
                 <td>{{ item.name }}</td>
-                 <td>{{ item.indirizzo }}</td>
-                 <td>{{ item.provincia}}</td>
+                 <td>{{ item.provincia }}</td>
+                 <td>{{ item.cauzione}}</td>
                  <td>{{ item.price }}€</td>
                  <td>
                      <button class="btn btn-outline btn-info"> Più info</button>
@@ -74,6 +32,39 @@
       {% endfor %}
     </tbody>
 </table>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-</html>
+    <style>
+     .content-table{
+        border-collapse: collapse ;
+        margin: 25px 0;
+        font-size: 1em;
+        min-width: 400px;
+        width: 90%;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        margin-left: 35px;
+        margin-right: 35px;
+    }
+
+    .content-table thead tr{
+        background-color: #01A670;
+        color: black;
+        text-align: left;
+        font-weight: bold;
+    }
+    .content-table th,
+    .content-table td{
+        padding: 12px 15px;
+    }
+    .content-table tbody tr {
+          border-bottom: 1px solid lightgrey;
+    }
+
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+    .content-table tbody tr:last-of-type {
+       border-bottom: 2px solid #01A670;
+    }
+    </style>
+{% endblock %}

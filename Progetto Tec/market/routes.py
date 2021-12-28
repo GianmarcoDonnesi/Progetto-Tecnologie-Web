@@ -27,7 +27,7 @@ def register_page():
         return redirect(url_for('annunci_page'))
     if form.errors != {}: #If there are not errors from the validations
         for err_msg in form.errors.values():
-            flash(f'There was an error with creating a user: {err_msg}', category='danger')
+            flash(f'Errore durante la creazione di un account: {err_msg}', category='danger')
 
     return render_template('register.html', form=form)
 
@@ -40,10 +40,10 @@ def login_page():
                 attempted_password=form.password.data
         ):
             login_user(attempted_user)
-            flash(f'Success! You are logged in as: {attempted_user.username}', category='success')
+            flash(f'Sei loggato come: {attempted_user.username}', category='success')
             return redirect(url_for('annunci_page'))
         else:
-            flash('Username and password are not match! Please try again', category='danger')
+            flash('Username e password non corrispondono! Riprova', category='danger')
 
     return render_template('login.html', form=form)
 

@@ -15,12 +15,5 @@
       <jdbc-url>jdbc:sqlite:C:\Users\gianm\Desktop\Progetto Tec\market\market.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="market [3]" uuid="7ce96978-70cf-4b36-9298-52b86751ee7c">
-      <driver-ref>sqlite.xerial</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\matte\OneDrive\Documenti\GitHub\Progetto-Tecnologie-Web\Progetto Tec\market\market.db</jdbc-url>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
   </component>
 </project>

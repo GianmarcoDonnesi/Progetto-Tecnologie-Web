@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+   Lend it!- Inserisci Annuncio
+{% endblock %}
+
+{% block content %}
+      <div class="form-group">
+        <form method="POST" class="form-insert" style="color:black">
+            {{ form.hidden_tag() }}
+            <img class="mb-4" src="/static/stretta di mano.jpg" alt="">
+            <h1 class="h3 mb-3 font-weight-normal">
+               Inizia inserendo un prodotto!
+            </h1>
+            <br>
+            {{ form.name.label() }}
+            {{ form.name(class="form-control", placeholder="Nome prodotto") }}
+
+            {{ form.price.label() }}
+            {{ form.price(class="form-control", placeholder="Prezzo") }}
+
+            {{ form.cauzione.label() }}
+            {{ form.cauzione(class="form-control", placeholder="Cauzione P/G") }}
+
+            {{ form.provincia.label() }}
+            {{ form.provincia(class="form-control", placeholder="Provincia") }}
+
+            {{ form.description.label() }}
+            {{ form.description(class="form-control", placeholder="Descrizione")}}
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+        </form>
+      </div>
+
+{% endblock %}

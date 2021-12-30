@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(length=60), nullable=False)
     items = db.relationship('Item', backref='owned_user', lazy=True)
 
+
+
     @property
     def password(self):
         return self.password

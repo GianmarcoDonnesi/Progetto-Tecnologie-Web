@@ -3,14 +3,19 @@ from flask import render_template, redirect, url_for, flash
 from market.models import Item, User
 from market.forms import RegisterForm, LoginForm
 from market import db
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 
 @app.route('/')
 @app.route('/home')
 def home_page():
     return render_template('home.html')
 
+@app.route('/inserisci_annuncio')
+def inserisci_annuncio():
+    return render_template('inserisciannuncio.html')
+
 @app.route('/annunci')
+@login_required
 def annunci_page():
     items = Item.query.all()
     return render_template('annunci.html', items=items)
@@ -24,7 +29,11 @@ def register_page():
                               password=form.password1.data)
         db.session.add(user_to_create)
         db.session.commit()
-        return redirect(url_for('annunci_page'))
+
+        login_user(user_to_create)
+        flash(f'Account creato! Sei loggato come: {user_to_create.username}', category='success')
+
+        return redirect(url_for('home_page'))
     if form.errors != {}: #If there are not errors from the validations
         for err_msg in form.errors.values():
             flash(f'Errore durante la creazione di un account: {err_msg}', category='danger')
@@ -48,6 +57,11 @@ def login_page():
     return render_template('login.html', form=form)
 
 
+@app.route('/logout')
+def logout_page():
+    logout_user()
+    flash("Hai effettuato il logout!", category='info')
+    return redirect(url_for("home_page"))
 
 
 

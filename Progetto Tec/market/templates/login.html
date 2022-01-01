@@ -9,7 +9,7 @@
         <form method="POST" class="form-signin" style="color:black">
             {{ form.hidden_tag() }}
             <img class="mb-4" src="/static/stretta di mano.jpg" alt="">
-            <h1 class="h3 mb-3 font-weight-normal">
+            <h1 class="animate__heartBeat">
                 Accedi
             </h1>
             <br>
@@ -33,6 +33,23 @@
     </div>
 </body>
     <style>
+    .container{
+        top: 100px;
+        position: relative;
+        border: 3px solid black;
+    display: inline-block;
+  margin: 0 0.5rem;
+  animation: backInDown;
+  animation-duration: 1s;
+        box-shadow: 10px 10px #01A670;
+}
+.animate__heartBeat{
+  margin: 0 0.5rem;
+  animation: heartBeat;
+  animation-duration: 10s;
+}
+
+
     .mb-4
     {
         width: 200px; height: auto;

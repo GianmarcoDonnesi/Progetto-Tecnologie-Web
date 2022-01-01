@@ -4,14 +4,12 @@
 {% endblock %}
 
 {% block content %}
-<body class="text-center">
-    <div class="container">
+<body class="text-center" >
+    <div class="container" >
         <form method="POST" class="form-register" style="color:black">
             {{ form.hidden_tag() }}
             <img class="mb-4" src="/static/stretta di mano.jpg" alt="">
-            <h1 class="h3 mb-3 font-weight-normal">
-               Crea un account!
-            </h1>
+            <h1 class="animate__heartBeat">Crea un account!</h1>
             <br>
             {{ form.username.label() }}
             {{ form.username(class="form-control", placeholder="User Name") }}
@@ -24,11 +22,10 @@
 
             {{ form.password2.label() }}
             {{ form.password2(class="form-control", placeholder="Conferma Password") }}
-
             <br>
 
             <div class="checkbox mb-3">
-               <h6>Hai già un account?</h6>
+               <h6 >Hai già un account?</h6>
                <a class="btn btn-sm btn-secondary" href="{{ url_for('login_page') }}">Accedi</a>
             </div>
 
@@ -36,11 +33,32 @@
 
         </form>
     </div>
+
 </body>
-        <style>
+
+    <style>
+.container{
+    border: 3px solid black;
+    top: 100px;
+    position: relative;
+    display: inline-block;
+  margin: 0 0.5rem;
+  animation: backInDown;
+  animation-duration: 1s;
+     box-shadow: 10px 10px #01A670;
+
+}
+.animate__heartBeat{
+  margin: 0 0.5rem;
+  animation: heartBeat;
+  animation-duration: 10s;
+}
+
     .mb-4
     {
         width: 200px; height: auto;
     }
     </style>
+
 {% endblock %}
+

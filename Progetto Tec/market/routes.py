@@ -12,7 +12,6 @@ def home_page():
 
 
 @app.route('/annunci')
-@login_required
 def annunci_page():
     items = Item.query.all()
     return render_template('annunci.html', items=items)
@@ -47,7 +46,7 @@ def login_page():
         ):
             login_user(attempted_user)
             flash(f'Sei loggato come: {attempted_user.username}', category='success')
-            return redirect(url_for('annunci_page'))
+            return redirect(url_for('home_page'))
         else:
             flash('Username e password non corrispondono! Riprova', category='danger')
 
@@ -61,6 +60,7 @@ def logout_page():
     return redirect(url_for("home_page"))
 
 @app.route('/insert_product', methods=['POST', 'GET'])
+@login_required
 def insert_product():
     form = Addproducts(request.form)
 

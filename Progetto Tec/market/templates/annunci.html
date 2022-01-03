@@ -14,7 +14,7 @@
             <th scope="col">Provincia</th>
             <th scope="col">Cauzione</th>
             <th scope="col">Prezzo P/G</th>
-            <th scope="col">Opzioni</th>
+            <th scope="col">Descrizione</th>
         </tr>
     </thead>
     <tbody>
@@ -26,13 +26,18 @@
                  <td>{{ item.cauzione}}€</td>
                  <td>{{ item.price }}€</td>
                  <td>
-                     <button class="btn btn-outline btn-info" data-toggle="Modal" data-target="#exampleModal">Più info</button>
+                     <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">Più info</button>
                      <button class="btn btn-outline btn-success"> Contatti</button>
+
                  </td>
           </tr>
       {% endfor %}
     </tbody>
 </table>
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <style>
      .content-table{
         border-collapse: collapse ;

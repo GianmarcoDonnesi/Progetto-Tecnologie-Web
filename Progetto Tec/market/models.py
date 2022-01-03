@@ -35,5 +35,8 @@ class Item(db.Model):
     description = db.Column(db.String(length=1024), nullable=False, unique=True)
     owner = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
+    image1 = db.Column(db.String(150), nullable=False)
+    image2 = db.Column(db.String(150), nullable=False)
+
     def __repr__(self):
-        return f'Item {self.name}'
+        return '<Item %r>' % self.name

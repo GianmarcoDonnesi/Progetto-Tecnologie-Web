@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}
+   Lend it!- Inserisci Annuncio
+{% endblock %}
+
+
+{% block content %}
+
+<div class = "container">
+     <div class="row">
+     <div class="col-md-2"></div>
+     <div class="col-md-8">
+         <h2 class="text-center bg-info p-2"> Inserisci un annuncio!</h2>
+         {%  from "_formhelpers.html" import render_field %}
+         <form action="" method="POST" enctype="multipart/form-data">
+             {{ render_field(form.nome, class="form-control", placeholder="Titolo Annuncio")}}
+             {{ render_field(form.price, class="form-control", placeholder="Prezzo P/G")}}
+             {{ render_field(form.caution, class="form-control", placeholder="Cauzione")}}
+             {{ render_field(form.province, class="form-control", placeholder="Provincia")}}
+             {{ render_field(form.description, class="form-control", placeholder="Inserisci Descrizione")}}
+
+             <div class="container">
+                 <div class="row">
+                     <div class="col-md-4">{{render_field(form.image_1, class="form-control")}}</div>
+                     <div class="col-md-4">{{ render_field(form.image_2, class="form-control")}}</div>
+                 </div>
+             </div>
+             <button type="submit" class="btn btn-outline-info mt-4">Inserisci annuncio</button>
+         </form>
+
+     </div>
+
+
+</div>
+
+</div>
+
+
+
+
+{% endblock content %}

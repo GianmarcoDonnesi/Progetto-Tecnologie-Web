@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, TextAreaField, IntegerField, validators, Form
 from wtforms.validators import Length, EqualTo, Email, DataRequired, ValidationError
 from market.models import User
-
+from flask_wtf.file import FileAllowed, FileField, FileRequired
 
 class RegisterForm(FlaskForm):
     def validate_username(self, username_to_check):
@@ -26,3 +26,15 @@ class LoginForm(FlaskForm):
     username = StringField(label='User Name:', validators=[DataRequired()])
     password = PasswordField(label='Password:', validators=[DataRequired()])
     submit = SubmitField(label='Accedi')
+
+
+
+class Addproducts(Form):
+    nome = StringField('Nome prodotto', [validators.DataRequired()])
+    price = IntegerField('Prezzo', [validators.DataRequired()])
+    caution = IntegerField('Cauzione', [validators.DataRequired()])
+    province = StringField('Provincia', validators=[Length(max=2), DataRequired()])
+    description = TextAreaField('Descrizione', validators=[Length(max=180), DataRequired()])
+    submit = SubmitField(label='Inserisci Annuncio')
+    image_1 = FileField('Prima immagine', validators=[FileRequired(), FileAllowed(['jpg', 'png', 'jpeg'])])
+    image_2 = FileField('Seconda immagine', validators=[FileRequired(), FileAllowed(['jpg', 'png', 'jpeg'])])

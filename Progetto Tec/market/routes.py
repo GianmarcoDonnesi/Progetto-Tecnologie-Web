@@ -1,7 +1,7 @@
-from market import app
+from market import app, photos
 from flask import render_template, session, request, redirect, url_for, flash
 from market.models import Item, User
-from market.forms import RegisterForm, LoginForm
+from market.forms import RegisterForm, LoginForm, Addproducts
 from market import db
 from flask_login import login_user, logout_user, login_required
 
@@ -10,9 +10,6 @@ from flask_login import login_user, logout_user, login_required
 def home_page():
     return render_template('home.html')
 
-@app.route('/inserisci_annuncio')
-def inserisci_annuncio():
-    return render_template('inserisciannuncio.html')
 
 @app.route('/annunci')
 @login_required
@@ -63,7 +60,26 @@ def logout_page():
     flash("Hai effettuato il logout!", category='info')
     return redirect(url_for("home_page"))
 
+@app.route('/insert_product', methods=['POST', 'GET'])
+def insert_product():
+    form = Addproducts(request.form)
 
+    if request.method == 'POST':
+        name = form.nome.data
+        price = form.price.data
+        cauzione = form.caution.data
+        provincia = form.province.data
+        description = form.description.data
+        image_1 = photos.save(request.files.get('image_1'))
+        image_2 = photos.save(request.files.get('image_2'))
+
+        Addpro = Item(name=name, price=price, cauzione=cauzione, provincia=provincia, description=description, image1=image_1, image2=image_2)
+        db.session.add(Addpro)
+        flash(f'Annuncio Inserito!', category='success')
+        db.session.commit()
+        return redirect(url_for('annunci_page'))
+
+    return render_template('Inserisci_annuncio.html', title="Inserisci annuncio", form=form)
 
 
 

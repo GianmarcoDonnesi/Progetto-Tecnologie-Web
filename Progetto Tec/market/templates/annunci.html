@@ -13,19 +13,20 @@
             <th scope="col">Titolo articolo</th>
             <th scope="col">Provincia</th>
             <th scope="col">Cauzione</th>
-            <th scope="col">Prezzo</th>
+            <th scope="col">Prezzo P/G</th>
             <th scope="col">Opzioni</th>
         </tr>
     </thead>
     <tbody>
       {% for item in items %}
+      {% include 'includes/items_modals.html' %}
           <tr>
                 <td>{{ item.name }}</td>
                  <td>{{ item.provincia }}</td>
-                 <td>{{ item.cauzione}}</td>
+                 <td>{{ item.cauzione}}€</td>
                  <td>{{ item.price }}€</td>
                  <td>
-                     <button class="btn btn-outline btn-info"> Più info</button>
+                     <button class="btn btn-outline btn-info" data-toggle="Modal" data-target="#exampleModal">Più info</button>
                      <button class="btn btn-outline btn-success"> Contatti</button>
                  </td>
           </tr>

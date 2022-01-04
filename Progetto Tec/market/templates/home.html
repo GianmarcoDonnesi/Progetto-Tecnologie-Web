@@ -7,24 +7,35 @@
 {% block content %}
 
 <section class="main">
+
+<section>
   <div class="container py-5">
   <div class="row py-4">
  <div class="col-lg-7 pt-5 text-center">
-   <h1 style="color: black;">Hai oggetti in casa che non utilizzi più?</h1>
+   <h1 class="title" style="color: black;">Hai oggetti in casa che non utilizzi più?</h1>
    <h2>Inserisci un annuncio ed inizia a guadagnare adesso!</h2>
    <a href="{{ url_for('insert_product') }}"> <button class="Lendit mt-3" >LEND IT!</button></a>
+
  </div>
   </div>
+
   </div>
 </section>
+</section>
+<br>
+    <br>
+    <br>
 
 <section class="product">
+
 <div class="container">
   <div class="row">
     <div class="col-lg-5 m-auto text-center">
-      <h2 >Annunci</h2>
+      <h2 class="ann" >Annunci</h2>
+        <br>
+        <br>
     </div>
-
+<br>
   </div>
   <div class="row">
   <div class="col-lg-3 text-center">
@@ -75,8 +86,17 @@
   </div>
 </div>
 </section>
-
+<br>
 <section class="mappa" >
+
+<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
   <div class="map py-5">
     <div class="row py-4">
       <div class="col-lg-7 pt-5 m-auto text-center">
@@ -122,18 +142,19 @@
     margin-left: -50px;
 }
 
-
 .main h1{
     font-size: 3rem;
     font-weight: 700;
     font-family: "robot";
     margin-right: 80px;
+    color: #01A670;
 }
 .main h2{
     font-size: 2rem;
     font-weight: 500;
     font-family: Arial;
     margin-right: 80px;
+    color: black;
 }
 .Lendit {
     height: 45px;
@@ -146,8 +167,9 @@
     margin-right: 80px;
 }
 .main{
-    background: url("{{url_for('static', filename='sfondo.jpg')}}") no-repeat;
-    background-size: cover;
+    background: url("{{url_for('static', filename='sfondo.png')}}") no-repeat right;
+    margin-right: 120px;
+    top: 50px;
     height: 60vh;
 }
 
@@ -180,7 +202,7 @@
 
 .googlemaps{
 
-    top: 400px;
+    top: 100px;
     width: 100%;
     border-radius: 50px;
     border: 10px   black;
@@ -191,10 +213,15 @@
 
 .mappa {
     position: relative;
-    top: 200px;
+    top: 100px;
 }
 
-
-
+.ann{
+    font-family: 'Anton', sans-serif;
+    color: black !important;
+}
+    .title{
+    color: #01A670;
+}
 </style>
 {% endblock %}

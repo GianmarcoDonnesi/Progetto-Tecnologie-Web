@@ -32,7 +32,8 @@ class Item(db.Model):
     price = db.Column(db.Integer(), nullable=False)
     cauzione = db.Column(db.Integer(), nullable=False)
     provincia = db.Column(db.String(length=2), nullable=False)
-    description = db.Column(db.String(length=1024), nullable=False, unique=True)
+    description = db.Column(db.String(length=2000), nullable=False, unique=True)
+    contatto = db.Column(db.String(length=60), nullable=False, unique=True)
     owner = db.Column(db.Integer(), db.ForeignKey('user.id'))
 
     image1 = db.Column(db.String(150), nullable=False)

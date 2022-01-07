@@ -34,6 +34,7 @@ class Addproducts(Form):
     price = IntegerField('Prezzo', [validators.DataRequired()])
     caution = IntegerField('Cauzione', [validators.DataRequired()])
     province = StringField('Provincia', validators=[Length(max=2), DataRequired()])
+    contact = StringField('Contatto', validators=[Length(max=50), DataRequired()])
     description = TextAreaField('Descrizione', validators=[Length(max=180), DataRequired()])
     submit = SubmitField(label='Inserisci Annuncio')
     image_1 = FileField('Prima immagine', validators=[FileRequired(), FileAllowed(['jpg', 'png', 'jpeg'])])

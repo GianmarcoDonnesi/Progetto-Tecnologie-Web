@@ -10,26 +10,29 @@
     <thead>
         <tr>
             <!-- Your Columns HERE -->
+            <th scope="col">Immagine</th>
             <th scope="col">Titolo articolo</th>
             <th scope="col">Provincia</th>
             <th scope="col">Cauzione</th>
             <th scope="col">Prezzo P/G</th>
+             <th scope="col">Contatto</th>
             <th scope="col">Descrizione</th>
+            <th scope="col">Modifica</th>
+
         </tr>
     </thead>
     <tbody>
       {% for item in items %}
       {% include 'includes/items_modals.html' %}
           <tr>
+                <td><img src="{{ url_for('static', filename='immagini/' + item.image1)}}" width="90" height="80"></td>
                 <td>{{ item.name }}</td>
                  <td>{{ item.provincia }}</td>
                  <td>{{ item.cauzione}}€</td>
                  <td>{{ item.price }}€</td>
-                 <td>
-                     <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">Più info</button>
-                     <button class="btn btn-outline btn-success"> Contatti</button>
-
-                 </td>
+                 <td>{{ item.contatto}}</td>
+                 <td><button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">Più info</button></td>
+                 <td><a href="{{ url_for('updateproduct', id=item.id)}}" class="btn btn-danger btn-sm">Modifica Annuncio</a> </td>
           </tr>
       {% endfor %}
     </tbody>

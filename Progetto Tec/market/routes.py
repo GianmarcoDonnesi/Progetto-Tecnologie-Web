@@ -69,11 +69,12 @@ def insert_product():
         price = form.price.data
         cauzione = form.caution.data
         provincia = form.province.data
+        contatto = form.contact.data
         description = form.description.data
         image_1 = photos.save(request.files.get('image_1'))
         image_2 = photos.save(request.files.get('image_2'))
 
-        Addpro = Item(name=name, price=price, cauzione=cauzione, provincia=provincia, description=description, image1=image_1, image2=image_2)
+        Addpro = Item(name=name, price=price, cauzione=cauzione, provincia=provincia, contatto=contatto, description=description, image1=image_1, image2=image_2)
         db.session.add(Addpro)
         flash(f'Annuncio Inserito!', category='success')
         db.session.commit()
@@ -82,4 +83,24 @@ def insert_product():
     return render_template('Inserisci_annuncio.html', title="Inserisci annuncio", form=form)
 
 
-
+@app.route('/updateproduct<int:id>', methods=['POST', 'GET'])
+def updateproduct(id):
+    item = Item.query.get_or_404(id)
+    form = Addproducts(request.form)
+    if request.method == "POST":
+        item.name = form.nome.data
+        item.price = form.price.data
+        item.cauzione = form.caution.data
+        item.provincia = form.province.data
+        item.contatto = form.contact.data
+        item.description = form.description.data
+        db.session.commit()
+        flash(f'Il tuo annuncio è stato aggiornato', 'success')
+        return redirect(url_for("annunci_page"))
+    form.nome.data = item.name
+    form.price.data = item.price
+    form.caution.data = item.cauzione
+    form.province.data = item.provincia
+    form.contact.data = item.contatto
+    form.description.data = item.description
+    return render_template('aggiorna_annuncio.html', form=form, item=item)

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+   Lend it!- Dettagli Prodotto
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="container mt-5">
+          <div class="row">
+              <div class="col-md-6" id="p_image">
+                  <img src="{{ url_for('static', filename='immagini/' + item.image1)}}" alt="{{ item.name }}" width="300" height="300">
+
+
+              </div>
+              <div class="col-md-6">
+               <h4>Titolo Annuncio : {{ item.name }} </h4>
+              <br>
+              <p> Prezzo:</p>
+              <p>{{ item.price }}€</p>
+              <b> Descrizione </b>
+              <p> {{ item.description }}</p>
+                  <a href="{{ url_for('annunci_page') }}" class="btn btn-warning">Torna agli annunci</a>
+          </div>
+          </div>
+    <div class="row">
+        <div class="col-md-12 mt-3" id="s_image">
+              <img src="{{ url_for('static', filename='immagini/' + item.image1)}}" alt="{{ item.name }}" width="100" height="100" class="p-3">
+              <img src="{{ url_for('static', filename='immagini/' + item.image2)}}" alt="{{ item.name }}" width="100" height="100" class="p-3">
+
+        </div>
+    </div>
+    </div>
+
+     <script>
+        var p_image = document.getElementById('p_image');
+        var s_image = document.getElementById('s_image').getElementsByTagName('img');
+        for(var i=0; i<s_image.length; i++){
+            s_image[i].addEventListener('click', full_image);
+        }
+        function full_image(){
+             var ImageSRC = this.getAttribute('src');
+             p_image.innerHTML = "<img src = "+ ImageSRC +"  height='300' width='300'>"
+        }
+
+    </script>
+
+{% endblock content %}

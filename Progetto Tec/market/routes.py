@@ -104,3 +104,9 @@ def updateproduct(id):
     form.contact.data = item.contatto
     form.description.data = item.description
     return render_template('aggiorna_annuncio.html', form=form, item=item)
+
+
+@app.route('/item<int:id>')
+def singolo_prodotto(id):
+    item = Item.query.get_or_404(id)
+    return render_template('dettagli_prodotto.html', item=item)

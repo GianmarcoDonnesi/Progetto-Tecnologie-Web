@@ -31,8 +31,8 @@
                  <td>{{ item.cauzione}}€</td>
                  <td>{{ item.price }}€</td>
                  <td>{{ item.contatto}}</td>
-                 <td><button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">Più info</button></td>
-                 <td><a href="{{ url_for('updateproduct', id=item.id)}}" class="btn btn-danger btn-sm">Modifica Annuncio</a> </td>
+              <td><a href="{{ url_for('singolo_prodotto', id=item.id)}}" class="btn btn-info btn-sm">Più info</a></td>
+              <td><a href="{{ url_for('updateproduct', id=item.id)}}" class="btn btn-danger btn-sm">Modifica Annuncio</a></td>
           </tr>
       {% endfor %}
     </tbody>

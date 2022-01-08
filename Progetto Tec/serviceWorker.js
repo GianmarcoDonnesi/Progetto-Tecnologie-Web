@@ -2,7 +2,7 @@ var cacheAll = false;
 var CACHE_NAME = 'webapk-cache';
 var urlsToCache = [
 	'/',
-	'/wp-content/uploads/2020/08/cropped-SC_Logo-192x192.png',
+	'/static/stretta-791x470.png',
 ];
 var urlsNotToCache = [
 ];

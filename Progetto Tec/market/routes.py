@@ -110,3 +110,4 @@ def updateproduct(id):
 def singolo_prodotto(id):
     item = Item.query.get_or_404(id)
     return render_template('dettagli_prodotto.html', item=item)
+

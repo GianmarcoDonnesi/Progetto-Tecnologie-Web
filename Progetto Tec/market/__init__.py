@@ -5,7 +5,6 @@ from flask_login import LoginManager
 from flask_uploads import IMAGES, UploadSet, configure_uploads
 import os
 
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///market.db'

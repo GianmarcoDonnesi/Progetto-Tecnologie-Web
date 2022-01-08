@@ -1,26 +1,26 @@
 {
-	"author": "SuperCoders",
-	"name": "SuperCoders",
-	"short_name": "SuperCoders",
-	"description": "Guide of Python Android Website Mobile Development | Online Video Tutorials | SuperCoders - SuperCoders",
+	"author": "GianmarcoDonnesi",
+	"name": "Lend It!",
+	"short_name": "LI",
+	"description": "Progetto Tec Web",
 	"orientation": "portrait",
 	"start_url": "/",
 	"scope": "/",
 	"display": "standalone",
-	"background_color": "grey",
-	"theme_color": "#238ee0",
+	"background_color": "white",
+	"theme_color": "#01A670",
 	"icons": [
 		{
-			"src": "/s_logo2.png",
+			"src": "/stretta-791x470.png",
 			"sizes": "48x48 72x72 96x96 128x128 192x192 256x256 512x512",
 			"type": "image/png"
 		}
 	],
-	"manifest_version": 2,
-	"version": "0.1",
+	"manifest_version": 3,
+	"version": "0.2",
 	"applications": {
 		"gecko": {
-			"id": "supercoders.tech@gmail.com"
+			"id": "gianmarco.donnesi@outlook.it"
 		}
 	}
 }

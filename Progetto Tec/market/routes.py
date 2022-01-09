@@ -1,4 +1,4 @@
-from market import app, photos
+from market import app, photos, search
 from flask import render_template, session, request, redirect, url_for, flash
 from market.models import Item, User
 from market.forms import RegisterForm, LoginForm, Addproducts
@@ -110,4 +110,11 @@ def updateproduct(id):
 def singolo_prodotto(id):
     item = Item.query.get_or_404(id)
     return render_template('dettagli_prodotto.html', item=item)
+
+
+@app.route('/risultato')
+def risultato():
+    searchword = request.args.get('q')
+    items = Item.query.msearch(searchword, fields=['name', 'provincia'], limit=10)
+    return render_template('risultato_ricerca.html', items=items)
 

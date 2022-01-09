@@ -31,8 +31,8 @@ class LoginForm(FlaskForm):
 
 class Addproducts(Form):
     nome = StringField('Nome prodotto', [validators.DataRequired()])
-    price = IntegerField('Prezzo', [validators.DataRequired()])
-    caution = IntegerField('Cauzione', [validators.DataRequired()])
+    price = IntegerField('Prezzo in €', [validators.DataRequired()])
+    caution = IntegerField('Cauzione in €', [validators.DataRequired()])
     province = StringField('Provincia', validators=[Length(max=2), DataRequired()])
     contact = StringField('Contatto', validators=[Length(max=50), DataRequired()])
     description = TextAreaField('Descrizione', validators=[Length(max=180), DataRequired()])

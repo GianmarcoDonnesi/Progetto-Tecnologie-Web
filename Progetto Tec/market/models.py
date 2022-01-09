@@ -27,6 +27,7 @@ class User(db.Model, UserMixin):
         return bcrypt.check_password_hash(self.password_hash, attempted_password)
 
 class Item(db.Model):
+    __searchable__ = ['name', 'provincia']
     id = db.Column(db.Integer(), primary_key=True)
     name = db.Column(db.String(length=30), nullable=False, unique=True)
     price = db.Column(db.Integer(), nullable=False)

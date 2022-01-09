@@ -3,7 +3,7 @@ from flask import render_template, session, request, redirect, url_for, flash
 from market.models import Item, User
 from market.forms import RegisterForm, LoginForm, Addproducts
 from market import db
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required, current_user
 
 @app.route('/')
 @app.route('/home')
@@ -71,10 +71,11 @@ def insert_product():
         provincia = form.province.data
         contatto = form.contact.data
         description = form.description.data
+        owner = current_user.id
         image_1 = photos.save(request.files.get('image_1'))
         image_2 = photos.save(request.files.get('image_2'))
 
-        Addpro = Item(name=name, price=price, cauzione=cauzione, provincia=provincia, contatto=contatto, description=description, image1=image_1, image2=image_2)
+        Addpro = Item(name=name, price=price, cauzione=cauzione, provincia=provincia, contatto=contatto, description=description, image1=image_1, image2=image_2, owner=owner)
         db.session.add(Addpro)
         flash(f'Annuncio Inserito!', category='success')
         db.session.commit()
@@ -117,4 +118,10 @@ def risultato():
     searchword = request.args.get('q')
     items = Item.query.msearch(searchword, fields=['name', 'provincia'], limit=10)
     return render_template('risultato_ricerca.html', items=items)
+
+
+@app.route('/ituoiannunci')
+def ituoiannunci():
+    item = Item.query.filter_by(owner=current_user.id).first()
+    return render_template('i_tuoi_annunci.html', item=item)
 

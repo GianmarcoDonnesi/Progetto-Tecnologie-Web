@@ -1,46 +1,35 @@
 {% extends 'base.html' %}
 {% block title %}
-  Lend It!-Annunci
+  Lend It!- I tuoi annunci
 {% endblock %}
 
 {% block content %}
-<nav class="navbar navbar-light bg-light" >
-  <div class="container-fluid" id="ricerca">
-    <form class="d-flex" action="{{ url_for('risultato') }}">
-      <input class="form-control me-2" type="search" placeholder="Ricerca Prodotto" aria-label="Search" name="q">
-      <button class="btn btn-outline-success" type="submit">Cerca</button>
-    </form>
-  </div>
-</nav>
 <div class="container4">
+
 <table class="content-table table-hover table-light">
     <thead>
         <tr>
             <!-- Your Columns HERE -->
             <th scope="col">Immagine</th>
             <th scope="col">Titolo articolo</th>
-            <th scope="col">Provincia</th>
-            <th scope="col">Cauzione</th>
-            <th scope="col">Prezzo P/G</th>
-             <th scope="col">Contatto</th>
             <th scope="col">Descrizione</th>
+            <th scope="col">Modifica</th>
 
         </tr>
     </thead>
     <tbody>
-      {% for item in items %}
-      {% include 'includes/items_modals.html' %}
+
+
+
+           {% include 'includes/items_modals.html' %}
           <tr>
                 <td><img src="{{ url_for('static', filename='immagini/' + item.image1)}}" width="90" height="80"></td>
                 <td>{{ item.name }}</td>
-                 <td>{{ item.provincia }}</td>
-                 <td>{{ item.cauzione}}€</td>
-                 <td>{{ item.price }}€</td>
-                 <td>{{ item.contatto}}</td>
               <td><a href="{{ url_for('singolo_prodotto', id=item.id)}}" class="btn btn-info btn-sm">Più info</a></td>
-
+              <td><a href="{{ url_for('updateproduct', id=item.id)}}" class="btn btn-danger btn-sm">Modifica Annuncio</a></td>
           </tr>
-      {% endfor %}
+
+
     </tbody>
 </table>
 </div>
@@ -91,7 +80,7 @@
     }
     .d-flex{
      position: absolute;
-          right: 500px;
+          right: 450px;
        bottom: 40px;
         border-color: black;
     }

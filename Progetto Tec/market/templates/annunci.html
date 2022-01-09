@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-  Lend It!-Annunci
+  Lend It!- I tuoi annunci
 {% endblock %}
 
 {% block content %}
@@ -13,6 +13,7 @@
   </div>
 </nav>
 <div class="container4">
+
 <table class="content-table table-hover table-light">
     <thead>
         <tr>
@@ -24,7 +25,6 @@
             <th scope="col">Prezzo P/G</th>
              <th scope="col">Contatto</th>
             <th scope="col">Descrizione</th>
-            <th scope="col">Modifica</th>
 
         </tr>
     </thead>
@@ -39,7 +39,6 @@
                  <td>{{ item.price }}€</td>
                  <td>{{ item.contatto}}</td>
               <td><a href="{{ url_for('singolo_prodotto', id=item.id)}}" class="btn btn-info btn-sm">Più info</a></td>
-              <td><a href="{{ url_for('updateproduct', id=item.id)}}" class="btn btn-danger btn-sm">Modifica Annuncio</a></td>
           </tr>
       {% endfor %}
     </tbody>
@@ -92,7 +91,7 @@
     }
     .d-flex{
      position: absolute;
-          right: 450px;
+          right: 500px;
        bottom: 40px;
         border-color: black;
     }

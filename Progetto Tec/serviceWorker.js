@@ -3,6 +3,7 @@ var CACHE_NAME = 'webapk-cache';
 var urlsToCache = [
 	'/',
 	'/static/stretta-791x470.png',
+	'main.js'
 ];
 var urlsNotToCache = [
 ];
